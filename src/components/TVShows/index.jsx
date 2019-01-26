@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Navbar from '../../helpers/Navbar';
 import { getShows } from '../../actions';
+import TableList from '../../helpers/TableList';
 
 class TVShows extends Component {
 
@@ -19,6 +20,7 @@ class TVShows extends Component {
         return (
             <div className="tv-shows">
                 <Navbar active='shows' />
+                <TableList list={shows !== undefined ? shows.results : []}/>
             </div>
         )
     }
