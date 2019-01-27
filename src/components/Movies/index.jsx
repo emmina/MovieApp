@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../../helpers/Navbar';
-import { getMovies } from '../../actions';
-import TableList from '../../helpers/TableList';
+import { moviesActions } from '../../actions';
+import { TableList } from '../../helpers';
 
 class Movies extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
 
-        dispatch(getMovies());
+        dispatch(moviesActions.getMovies());
     }
 
     render() {
@@ -19,7 +19,7 @@ class Movies extends Component {
         return (
             <div className="tv-shows">
                 <Navbar active='movies'/>
-                <TableList list={movies !== undefined ? movies.results : []}/>
+                <TableList category='movies' list={movies !== undefined ? movies.results : []}/>
             </div>
         )
     }

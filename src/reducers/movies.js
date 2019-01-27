@@ -2,7 +2,7 @@ import { movieDbConstants } from '../constants';
 
 const initialState = {};
 
-export function getMovies(state = initialState, action) {
+function getMovies(state = initialState, action) {
   switch (action.type) {
     case movieDbConstants.GETMOVIES_REQUEST:
       return {
@@ -17,4 +17,26 @@ export function getMovies(state = initialState, action) {
     default:
       return state
   }
+}
+
+function getMovie(state = initialState, action) {
+  switch (action.type) {
+    case movieDbConstants.GETMOVIE_REQUEST:
+      return {
+        movie: action.movie
+      };
+    case movieDbConstants.GETMOVIE_SUCCESS:
+      return {
+        movie: action.movie
+      };
+    case movieDbConstants.GETMOVIE_FAILURE:
+      return {};
+    default:
+      return state
+  }
+}
+
+export {
+  getMovies,
+  getMovie
 }

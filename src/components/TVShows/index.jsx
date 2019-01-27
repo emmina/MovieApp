@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../../helpers/Navbar';
-import { getShows } from '../../actions';
-import TableList from '../../helpers/TableList';
+import { showsActions } from '../../actions';
+import { TableList } from '../../helpers';
 
 class TVShows extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
 
-        dispatch(getShows());
+        dispatch(showsActions.getShows());
     }
 
     render() {
@@ -20,7 +20,7 @@ class TVShows extends Component {
         return (
             <div className="tv-shows">
                 <Navbar active='shows' />
-                <TableList list={shows !== undefined ? shows.results : []}/>
+                <TableList category='shows' list={shows !== undefined ? shows.results : []}/>
             </div>
         )
     }

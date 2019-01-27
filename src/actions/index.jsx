@@ -1,8 +1,8 @@
 import { createAction } from 'redux-act';
 
-import { getMovies } from './moviesActions';
-import { getShows } from './showsActions';
+import { moviesActions } from './moviesActions';
+import { showsActions } from './showsActions';
 
-export { getMovies, getShows };
+export { moviesActions, showsActions };
 
 export const setLocale = createAction('SET_LOCALE');

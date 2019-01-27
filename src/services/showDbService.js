@@ -1,17 +1,17 @@
-function getTopMovies() {
+function getTopShows() {
     const requestOptions = {
         method: 'GET'
     };
 
-    return fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US&page=1', requestOptions).then(handleResponse);
+    return fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US&page=1', requestOptions).then(handleResponse);
 }
 
-function getMovieById(id) {
+function getShowById(id) {
     const requestOptions = {
         method: 'GET'
     };
 
-    return fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US', requestOptions).then(handleResponse);
+    return fetch('https://api.themoviedb.org/3/tv/' + id + '?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
@@ -29,7 +29,7 @@ function handleResponse(response) {
 }
 
 
-export const movieDbService = {
-    getTopMovies,
-    getMovieById
+export const showDbService = {
+    getTopShows,
+    getShowById
 };

@@ -5,14 +5,16 @@ import './TableList.css';
 
 class TableList extends PureComponent {
     render() {
-        const { list } = this.props;
+        const { list, category } = this.props;
 
         return (
             <Grid fluid={true}>
                 <Row className="show-grid">
                     {list.map(item =>
                         <Col key={item.id} className='box-item' sm={6} md={3}>
-                            {item.overview}
+                            <a href={'/' + category + '/' + item.id}>
+                                {item.overview}
+                            </a>
                         </Col>
                     )}
                 </Row>
