@@ -28,10 +28,13 @@ class ShowDetails extends Component {
     render() {
         const { show } = this.props;
 
-        console.log('render', show)
         return (
             <div className="show">
-                <Button bsStyle="primary" onClick={this.onBack} className='back-button'>Back</Button>
+                <Button bsStyle="primary" onClick={this.onBack} className='details-margin'>Back</Button>
+                <div class='details-margin'>
+                    <p>Show overview:</p>
+                    {show !== undefined && <p>{show.overview}</p>}
+                </div>
             </div>
         )
     }
@@ -39,7 +42,6 @@ class ShowDetails extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const { getShow } = state;
-    console.log(state)
 
     return {
         show: getShow.show

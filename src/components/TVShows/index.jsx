@@ -6,6 +6,15 @@ import { showsActions } from '../../actions';
 import { TableList } from '../../helpers';
 
 class TVShows extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            query: ''
+        }
+
+        this.onSearch = this.onSearch.bind(this);
+    }
 
     componentDidMount() {
         const { dispatch } = this.props;
@@ -13,24 +22,38 @@ class TVShows extends Component {
         dispatch(showsActions.getShows());
     }
 
-    render() {
-        const { shows } = this.props;
+    onSearch(query) {
+        const { dispatch } = this.props;
 
-        console.log('render', shows)
+        if (query !== undefined && query.length >= 3) {
+            dispatch(showsActions.searchShows(query));
+        }
+
+        this.setState({ query })
+    }
+
+    render() {
+        const { shows, searchedShows } = this.props;
+        const { query } = this.state;
+        const showShows = query === undefined || query === '' || query.length < 3 ?
+            shows !== undefined ? shows.results.slice(0, 10) : [] : 
+            searchedShows !== undefined ? searchedShows.results : [];
+
         return (
             <div className="tv-shows">
-                <Navbar active='shows' />
-                <TableList category='shows' list={shows !== undefined ? shows.results : []}/>
+                <Navbar active='shows' onSearch={this.onSearch} />
+                <TableList category='shows' list={showShows !== undefined ? showShows : []} />
             </div>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { getShows } = state;
+    const { getShows, searchShows } = state;
 
     return {
-        shows: getShows.shows
+        shows: getShows.shows,
+        searchedShows: searchShows.searchedShows
     };
 };
 

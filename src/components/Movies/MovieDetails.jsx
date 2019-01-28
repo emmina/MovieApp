@@ -28,10 +28,13 @@ class MovieDetails extends Component {
     render() {
         const { movie } = this.props;
 
-        console.log('render', movie)
         return (
             <div className="movie">
-            <Button bsStyle="primary" onClick={this.onBack} className='back-button'>Back</Button>
+                <Button bsStyle="primary" onClick={this.onBack} className='details-margin'>Back</Button>
+                <div class='details-margin'>
+                    <p>Movie overview:</p>
+                    {movie !== undefined && <p>{movie.overview}</p>}
+                </div>
             </div>
         )
     }

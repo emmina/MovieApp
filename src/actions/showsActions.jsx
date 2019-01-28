@@ -33,7 +33,24 @@ function getShowById(id) {
   function failure(error) { return { type: movieDbConstants.GETSHOW_FAILURE, error } }
 }
 
+function searchShows(query) {
+  return dispatch => {
+    dispatch(request());
+
+    showDbService.searchShows(query)
+      .then(
+        searchedShows => dispatch(success(searchedShows)),
+        error => dispatch(failure(error.toString()))
+      );
+  };
+
+  function request() { return { type: movieDbConstants.SEARCHSHOWS_REQUEST } }
+  function success(searchedShows) { return { type: movieDbConstants.SEARCHSHOWS_SUCCESS, searchedShows } }
+  function failure(error) { return { type: movieDbConstants.SEARCHSHOWS_FAILURE, error } }
+}
+
 export const showsActions = {
   getShows,
-  getShowById
+  getShowById,
+  searchShows
 };

@@ -14,6 +14,14 @@ function getShowById(id) {
     return fetch('https://api.themoviedb.org/3/tv/' + id + '?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US', requestOptions).then(handleResponse);
 }
 
+function searchShows(query) {
+    const requestOptions = {
+        method: 'GET'
+    };
+
+    return fetch('https://api.themoviedb.org/3/search/tv?api_key=68b0765a6d5c51653ecdd4bda511cc24&language=en-US&page=1&query=' + query, requestOptions).then(handleResponse);
+}
+
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
@@ -31,5 +39,6 @@ function handleResponse(response) {
 
 export const showDbService = {
     getTopShows,
-    getShowById
+    getShowById,
+    searchShows
 };

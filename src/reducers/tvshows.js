@@ -36,7 +36,25 @@ function getShow(state = initialState, action) {
   }
 }
 
+function searchShows(state = initialState, action) {
+  switch (action.type) {
+    case movieDbConstants.SEARCHSHOWS_REQUEST:
+      return {
+        searchedShows: action.searchedShows
+      };
+    case movieDbConstants.SEARCHSHOWS_SUCCESS:
+      return {
+        searchedShows: action.searchedShows
+      };
+    case movieDbConstants.SEARCHSHOWS_FAILURE:
+      return {};
+    default:
+      return state
+  }
+}
+
 export {
   getShows,
-  getShow
+  getShow,
+  searchShows
 }

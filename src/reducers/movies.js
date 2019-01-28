@@ -36,7 +36,25 @@ function getMovie(state = initialState, action) {
   }
 }
 
+function searchMovies(state = initialState, action) {
+  switch (action.type) {
+    case movieDbConstants.SEARCHMOVIES_REQUEST:
+      return {
+        searchedMovies: action.searchedMovies
+      };
+    case movieDbConstants.SEARCHMOVIES_SUCCESS:
+      return {
+        searchedMovies: action.searchedMovies
+      };
+    case movieDbConstants.SEARCHMOVIES_FAILURE:
+      return {};
+    default:
+      return state
+  }
+}
+
 export {
   getMovies,
-  getMovie
+  getMovie,
+  searchMovies
 }
