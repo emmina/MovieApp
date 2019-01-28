@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
@@ -13,11 +14,9 @@ class Navbar extends Component {
 
         return (
             <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
-                <a className={`nav-link ${active === 'movies'? 'navlink-active' : ''}`} href="/movies">Top 10 Movies</a>
-                <a className={`nav-link ${active === 'shows'? 'navlink-active' : ''}`} href="/shows">TV Shows</a>
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => this.onSearch(e)} />
-                </form>
+                <Link className={`nav-link ${active === 'movies' ? 'navlink-active' : ''}`} to='/movies'>Top 10 Movies</Link>
+                <Link className={`nav-link ${active === 'shows' ? 'navlink-active' : ''}`} to='/shows'>Top 10 TV Shows</Link>
+                <input className="form-inline form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search" onChange={(e) => this.onSearch(e)} />
             </nav>
         );
     }

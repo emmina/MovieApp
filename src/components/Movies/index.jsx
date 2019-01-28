@@ -38,6 +38,7 @@ class Movies extends Component {
         const showMovies = query === undefined || query === '' || query.length < 3 ?
             movies !== undefined ? movies.results.slice(0, 10) : [] : 
             searchedMovies !== undefined ? searchedMovies.results : [];
+        console.log(showMovies)
 
         return (
             <div className="tv-shows">

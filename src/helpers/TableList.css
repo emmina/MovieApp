@@ -4,3 +4,11 @@
     margin-top: 15px;
     border-radius: 3%;
 }
+
+.backdrop-image {
+    width: 100%;
+}
+
+.title {
+    margin: 10px;
+}

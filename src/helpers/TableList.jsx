@@ -12,7 +12,8 @@ class TableList extends PureComponent {
                 <Row className="show-grid">
                     {list.map(item =>
                         <Col key={item.id} className='box-item' sm={6} md={3}>
-                        <h5>{item.title !== undefined ? item.title : item.name}</h5>
+                        <img className='backdrop-image' src={"https://image.tmdb.org/t/p/original" + item.backdrop_path} alt="Photo"/>
+                        <h5 className='title'>{item.title !== undefined ? item.title : item.name}</h5>
                             <a href={'/' + category + '/' + item.id}>
                                 {item.overview}
                             </a>
