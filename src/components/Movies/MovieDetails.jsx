@@ -31,7 +31,8 @@ class MovieDetails extends Component {
         return (
             <div className="movie">
                 <Button bsStyle="primary" onClick={this.onBack} className='details-margin'>Back</Button>
-                <div class='details-margin'>
+                <div className='details-margin'>
+                {movie !== undefined && <img className='image-width' src={"https://image.tmdb.org/t/p/original" + movie.poster_path} alt="Photo"/>}
                     <p>Movie overview:</p>
                     {movie !== undefined && <p>{movie.overview}</p>}
                 </div>

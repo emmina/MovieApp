@@ -31,7 +31,8 @@ class ShowDetails extends Component {
         return (
             <div className="show">
                 <Button bsStyle="primary" onClick={this.onBack} className='details-margin'>Back</Button>
-                <div class='details-margin'>
+                <div className='details-margin'>
+                {show !== undefined && <img className='image-width' src={"https://image.tmdb.org/t/p/original" + show.poster_path} alt="Photo"/>}
                     <p>Show overview:</p>
                     {show !== undefined && <p>{show.overview}</p>}
                 </div>

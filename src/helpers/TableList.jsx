@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Grid, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 import './TableList.css';
 
@@ -12,11 +13,12 @@ class TableList extends PureComponent {
                 <Row className="show-grid">
                     {list.map(item =>
                         <Col key={item.id} className='box-item' sm={6} md={3}>
-                        <img className='backdrop-image' src={"https://image.tmdb.org/t/p/original" + item.backdrop_path} alt="Photo"/>
+                         <Link to={'/' + category + '/' + item.id} className='details-link'>
+                        <img className='backdrop-image' src={"https://image.tmdb.org/t/p/original" + item.poster_path} alt="Photo"/>
                         <h5 className='title'>{item.title !== undefined ? item.title : item.name}</h5>
-                            <a href={'/' + category + '/' + item.id}>
+                           
                                 {item.overview}
-                            </a>
+                            </Link>
                         </Col>
                     )}
                 </Row>
